@@ -1,0 +1,20 @@
+<html>
+    <head>
+        <title>Json</title>
+    </head>
+    <body>
+        <h3> Here's some Json</h3>
+        <p>{"isbn":1234567,
+            "Author": "Andrew Beatty",
+            "Title" : "the emptness of ping-pong balls"
+            }
+            </p>
+        <button onclick="parseJson()"> Print Author Name to Console</button>
+        <script>
+        function parseJson(){
+            var obj = JSON.parse('{"isbn": 1234567, "Author": "Andrew Beatty","Title" : "the emptness of ping-pong balls"}')
+            console.log(obj.Author)
+        }
+        </script>
+    </body>
+</html>
