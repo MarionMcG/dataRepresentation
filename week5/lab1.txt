@@ -1,0 +1,65 @@
+C:\Users\mario>curl google.com
+	<HTML><HEAD><meta http-equiv="content-type" content="text/html;charset=utf-8">
+	<TITLE>301 Moved</TITLE></HEAD><BODY>
+	<H1>301 Moved</H1>
+	The document has moved
+	<A HREF="http://www.google.com/">here</A>.
+	</BODY></HTML>
+
+C:\Users\mario>curl -i google.com
+	HTTP/1.1 301 Moved Permanently
+	Location: http://www.google.com/
+	Content-Type: text/html; charset=UTF-8
+	Date: Sat, 30 Nov 2019 16:27:19 GMT
+	Expires: Mon, 30 Dec 2019 16:27:19 GMT
+	Cache-Control: public, max-age=2592000
+	Server: gws
+	Content-Length: 219
+	X-XSS-Protection: 0
+	X-Frame-Options: SAMEORIGIN
+
+	<HTML><HEAD><meta http-equiv="content-type" content="text/html;charset=utf-8">
+	<TITLE>301 Moved</TITLE></HEAD><BODY>
+	<H1>301 Moved</H1>
+	The document has moved
+	<A HREF="http://www.google.com/">here</A>.
+	</BODY></HTML>
+	
+3. Look	at	the	website	http://dummy.restapiexample.com/
+	a. What	the	curl command be	to view all the employees?
+
+C:\Users\mario>curl http://dummy.restapiexample.com/api/v1/employees
+
+	b. THe command to return employee 2022 returns false. BUT employee 482 exists 
+	
+
+C:\Users\mario>curl http://dummy.restapiexample.com/api/v1/employee/483
+	{"id":"483","employee_name":"17:10:35.538samay f51d790a-05da-4627-aca0-9d29b63f93ec ","employee_salary":"584111","employee_age":"111","profile_image":""}
+
+4. I then deleted that employee
+
+C:\Users\mario>curl -X DELETE http://dummy.restapiexample.com/api/v1/delete/483
+	{"success":{"text":"successfully! deleted Records"}}
+	
+5. Adding an employee
+C:\Users\mario>curl -i -d "{\"name\":\"Marion3215\",\"salary\":\"31334\",\"age\":\"33\"}" -H "ContentType:application/json" -X POST http://dummy.restapiexample.com/api/v1/create
+HTTP/1.1 200 OK
+Date: Sat, 30 Nov 2019 16:54:33 GMT
+Server: Apache
+Expires: Thu, 19 Nov 1981 08:52:00 GMT
+Cache-Control: no-store, no-cache, must-revalidate
+Pragma: no-cache
+Access-Control-Allow-Origin: *
+Access-Control-Expose-Headers: Content-Type, X-Requested-With, X-authentication, X-client
+Set-Cookie: PHPSESSID=bbba7efbd5a5542210b97331f47f3d1c; path=/
+Upgrade: h2,h2c
+Connection: Upgrade
+Referrer-Policy:
+Content-Length: 60
+Content-Type: text/html; charset=UTF-8
+
+{"name":"Marion3215","salary":"31334","age":"33","id":"501"}
+
+6. Now I'll update the object I've just created
+C:\Users\mario>curl -d "{\"name\":\"Mary\",\"salary\":\"12000\",\"age\":99}" -H "Content-Type:application/json" -X PUT http://dummy.restapiexample.com/api/v1/update/501
+{"name":"Mary","salary":"12000","age":"99"}
