@@ -17,12 +17,6 @@
             "model": "Almera",
             "price": 8000,
             "reg": "test"
-        },
-        {
-            "make": "blah",
-            "model": "blah",
-            "price": 1234,
-            "reg": "123"
         }
     ]
 }
