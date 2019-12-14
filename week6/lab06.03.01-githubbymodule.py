@@ -10,6 +10,8 @@ from github import Github
 g = Github("ad2489f9c8f2dfe48e22d07f8a42efc2191be62c")
 #print list of repos
 ##print(Repositories)
+#user = g.get_user()
+#print(user)
 ##for repo in g.get_user().get_repos():
    ##print(repo.name)
 
